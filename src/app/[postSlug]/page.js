@@ -6,10 +6,22 @@ import BlogHero from '@/components/BlogHero'
 import styles from './postSlug.module.css'
 import { loadBlogPost } from '@/helpers/file-helpers'
 
+export async function generateMetadata({ params }) {
+  const {
+    frontmatter: { title, abstract },
+  } = await loadBlogPost(params.postSlug)
+
+  return {
+    title: `${title} • ${BLOG_TITLE}`,
+    description: abstract,
+  }
+}
+
 async function BlogPost({ params }) {
-  console.log(params)
-  const { frontmatter, content } = await loadBlogPost(params.postSlug)
-  const { title, publishedOn } = frontmatter
+  const {
+    frontmatter: { title, publishedOn },
+    content,
+  } = await loadBlogPost(params.postSlug)
 
   return (
     <article className={styles.wrapper}>
