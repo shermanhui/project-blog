@@ -8,9 +8,7 @@ import { loadBlogPost } from '@/helpers/file-helpers'
 import CodeSnippet from '@/components/CodeSnippet'
 import { BLOG_TITLE } from '@/constants'
 
-const DivisionGroupsDemo = React.lazy(() =>
-  import('@/components/DivisionGroupsDemo')
-)
+import DivisionGroupsDemo from '@/components/DivisionGroupsDemo'
 
 export async function generateMetadata({ params }) {
   const {
