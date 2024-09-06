@@ -9,6 +9,7 @@ import CodeSnippet from '@/components/CodeSnippet'
 import { BLOG_TITLE } from '@/constants'
 
 import DivisionGroupsDemo from '@/components/DivisionGroupsDemo'
+import CircularColorsDemo from '@/components/CircularColorsDemo'
 
 export async function generateMetadata({ params }) {
   const {
@@ -33,7 +34,11 @@ async function BlogPost({ params }) {
       <div className={styles.page}>
         <MDXRemote
           source={content}
-          components={{ pre: CodeSnippet, DivisionGroupsDemo }}
+          components={{
+            pre: CodeSnippet,
+            DivisionGroupsDemo,
+            CircularColorsDemo,
+          }}
         />
       </div>
     </article>
